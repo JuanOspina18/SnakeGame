@@ -36,14 +36,15 @@ section{
 }
 
 .gameOverCss{
-  position: absolute; 
-  background:black;
+  position: absolute;
+  background: black;
   display: grid;
   width: 100vw;
-  height: 100hw;
+  height: 100vh;
   top: 0;
   inset: 0;
   place-content: center;
   font-size: 48px;
   cursor: pointer;
+  text-align: center;
 }

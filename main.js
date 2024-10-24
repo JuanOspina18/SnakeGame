@@ -2,6 +2,7 @@ import './style.css'
 
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
+const $score = document.querySelector('span')
 const BLOCK_SIZE = 30;
 const BOARD_WIDTH = 21;
 const BOARD_HEIGHT = 21;
@@ -24,6 +25,7 @@ let piece = [
 
 let direction = { x: 1, y: 0 };
 let move = false;
+let score = 0
 
 const apple = {
   position: randomPositionApple(),
@@ -55,12 +57,14 @@ function update(time = 0) {
       direction = { x: 1, y: 0 };
       move = false;
       apple.position = randomPositionApple();
+      score = 0
       GameOver();
     }
 
     if (collisionApple()) {
       growSnake();
       apple.position = randomPositionApple();
+      score ++
     }
 
     dropCounter = 0;
@@ -123,6 +127,7 @@ function draw() {
       }
     });
   });
+  $score.innerText = score
 }
 
 document.addEventListener('keydown', event => {
